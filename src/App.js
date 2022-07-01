@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import HelloWorld from "./1_Components/HelloWorld";
+import Greeting from "./1_Components/Greeting";
+import Home from "./1_Ex_HomePage/Home";
+import Msi from "./1_Ex_MSI/Msi";
+import DataBinding from "./2_DataBinding/DataBinding";
 
+// Component: một function return về JSX mô tả những gì sẽ được hiển thị trên giao diện
 function App() {
+  // JSX: Javascript XML
+  // JSX là một cú pháp đặc biệt cho phép viết HTML bên trong javascript
+  // Bởi vì JSX gần với JS hơn là với HTML, nên các property/attribute của thẻ HTML ta cần chuyển thành camelCase
+  // VD: class -> className, for -> htmlFor, tabindex -> tabIndex
+  // return (
+  //   <div className="App">
+  //     <h1>Hello Reactjs</h1>
+  //   </div>
+  // );
+  // Bản chất đoạn code JSX trên sẽ được transform về JS thuần như sau
+  // return React.createElement(
+  //   "div", { className: "App" },
+  //   React.createElement("h1", null, "Hello Reactjs")
+  // );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // 1. Components
+    // <div className="text-center text-primary">
+    //   <h1>App</h1>
+    //   <HelloWorld />
+    //   <Greeting />
+    // </div>
+
+    // <Home />
+    // <Msi />
+
+    // 2. Data Binding
+    <DataBinding />
   );
 }
 
