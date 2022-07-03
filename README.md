@@ -83,3 +83,89 @@ const jsx = React.createElement(
 <label htmlFor="username">Username</label>
 <input type="text" id="username" />
 ```
+
+## 3. Event
+
+- Các sự kiện trong React được đặt tên bằng camelCase, thay vì chữ thường. Ví dụ: onclick -> onClick, onchange -> onChange
+- Với JSX, truyền một hàm làm trình xử lý sự kiện, thay vì một chuỗi.
+
+```jsx
+// html
+<button onclick="handleClick()">
+  Clicker
+</button>
+
+// jsx
+<button onClick={handleClick}>
+  Clicker
+</button>
+```
+
+- Tổng hợp những sự kiện được hỗ trợ trong react: https://reactjs.org/docs/events.html
+- Để truyền tham số vào cho các hàm xử lý sự kiện
+
+```jsx
+// Cách 1: Sử dụng arrow function
+<button onClick={(e) => this.showMessage(e, "Hello BC27")}>Show Message</button>
+// Cách 2: Sử dụng bind
+<button onClick={this.showMessage.bind(this, id)}>Show Message</button>
+```
+
+- Khi sử dụng class component, cần lưu ý từ khoá this bên trong các hàm xử lý sự kiện
+
+```jsx
+class App extends React.Component {
+  message = "Reactjs - BC27";
+
+  showMessage() {
+    // throw error vì this là undefined
+    alert(this.message);
+  }
+
+  render() {
+    return <button onClick={showMessage}>Show Message</button>;
+  }
+}
+
+// Để khắc phục ta có 2 cách
+// Cách 1: Viết hàm showMessage theo dạng arrow function
+showMessage = () => {
+  alert(this.message);
+};
+// Cách 2: Cần bind this của component vào trong hàm showMessage trong constructor
+constructor() {
+  super()
+  this.showMessage = this.showMessage.bind(this)
+}
+```
+
+### 4. State
+
+- State là một object đặc biệt dùng để lưu trữ dữ liệu cho component, mỗi khi state thay đổi component đó sẽ được render lại.
+- State được dùng để phản hồi các yêu cầu từ người dùng, hay lưu trữ một dữ liệu nào đó trong component.
+- Để sử dụng state ta cần sử dụng class component
+
+```jsx
+class App extends Component {
+  constructor() {
+    super();
+    // Khởi tạo state
+    this.state = { message: "Hello Cybersoft" };
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.message}</h1>
+      </div>
+    );
+  }
+}
+```
+
+- Không được thay đổi trực tiếp giá trị của state mà phải thông qua hàm setState
+
+```jsx
+this.setState({
+  message: "Frontend Bootcamp 27",
+});
+```

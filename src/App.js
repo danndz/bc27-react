@@ -4,6 +4,9 @@ import Greeting from "./1_Components/Greeting";
 import Home from "./1_Ex_HomePage/Home";
 import Msi from "./1_Ex_MSI/Msi";
 import DataBinding from "./2_DataBinding/DataBinding";
+import Event from "./3_Event/Event";
+import State from "./4_State/State";
+import SelectCar from "./4_Ex_SelectCar/SelectCar";
 
 // Component: một function return về JSX mô tả những gì sẽ được hiển thị trên giao diện
 function App() {
@@ -29,12 +32,18 @@ function App() {
     //   <HelloWorld />
     //   <Greeting />
     // </div>
-
     // <Home />
     // <Msi />
 
     // 2. Data Binding
-    <DataBinding />
+    // <DataBinding />
+
+    // 3. Event
+    // <Event />
+
+    // 4. State
+    // <State />
+    <SelectCar />
   );
 }
 
