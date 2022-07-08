@@ -123,7 +123,7 @@ class App extends React.Component {
   }
 
   render() {
-    return <button onClick={showMessage}>Show Message</button>;
+    return <button onClick={this.showMessage}>Show Message</button>;
   }
 }
 
@@ -168,4 +168,35 @@ class App extends Component {
 this.setState({
   message: "Frontend Bootcamp 27",
 });
+```
+
+- Vì state có thể được cập nhật không đồng bộ, nếu cần lấy kết qua sau khi setState ta sẽ lấy trong tham số thứ 2 của hàm setState là 1 callback function
+
+```jsx
+constructor() {
+  super()
+  this.state = {
+    message: ""
+  }
+}
+
+this.setState({ message: "Hello" }, () => {
+  console.log(this.state.message); // "Hello"
+});
+
+console.log(this.state.message); // ""
+```
+
+- Bởi state có thể được cập nhật không đồng bộ, ta không nên dựa vào giá trị của chúng để tính toán cho giá trị mới của state.
+
+```jsx
+// Wrong
+this.setState({
+  counter: this.state.counter + 1,
+});
+
+// Correct
+this.setState((state) => ({
+  counter: state.counter + 1,
+}));
 ```

@@ -17,7 +17,24 @@ export default class State extends Component {
   increase = () => {
     // Ta không thể thay đổi state theo dạng: this.state.count += 1
     // Khi thay đổi giá trị của state ta cần dùng hàm setState
-    this.setState({ count: this.state.count + 1 });
+
+    console.log("Count trước khi setState:", this.state.count);
+    this.setState({ count: this.state.count + 1 }, () => {
+      // Callback này chỉ được chạy khi quá trình thay đổi state hoàn tất
+      console.log("Count sau khi setState:", this.state.count);
+    });
+
+    // Quá trình thay đổi state là bất đồng bộ => Không thể lấy giá trị mới của state ở đây
+    // console.log("Count sau khi setState:", this.state.count);
+  };
+
+  decrease = () => {
+    // this.setState({ count: this.state.count - 1 });
+    // this.setState({ count: this.state.count - 1 });
+
+    // Khi cập nhật state mà cần dùng giá trị hiện tại của state để tính toán thì ta nên viết hàm setState nhận vào một callback
+    this.setState((state) => ({ count: state.count - 1 }));
+    // this.setState((state) => ({ count: state.count - 1 }));
   };
 
   getMessage = () => {
@@ -33,6 +50,7 @@ export default class State extends Component {
 
         <p>Count: {this.state.count}</p>
         <button onClick={this.increase}>Increase</button>
+        <button onClick={this.decrease}>Decrease</button>
 
         <br />
         <br />

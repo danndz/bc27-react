@@ -7,6 +7,10 @@ import DataBinding from "./2_DataBinding/DataBinding";
 import Event from "./3_Event/Event";
 import State from "./4_State/State";
 import SelectCar from "./4_Ex_SelectCar/SelectCar";
+import ConditionalRendering from "./5_ConditionalRendering/ConditionalRendering";
+import Map from "./6_Map/Map";
+import Movie from "./6_Ex_Movie/Movie";
+import Props from "./7_Props/Props";
 
 // Component: một function return về JSX mô tả những gì sẽ được hiển thị trên giao diện
 function App() {
@@ -43,8 +47,28 @@ function App() {
 
     // 4. State
     // <State />
-    <SelectCar />
+    // <SelectCar />
+
+    // 5. Conditional rendering
+    // <ConditionalRendering />
+
+    // 6. Map
+    // <Map />
+    // <Movie />
+
+    // 7. Props
+    <Props />
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
