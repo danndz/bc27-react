@@ -11,6 +11,8 @@ import ConditionalRendering from "./5_ConditionalRendering/ConditionalRendering"
 import Map from "./6_Map/Map";
 import Movie from "./6_Ex_Movie/Movie";
 import Props from "./7_Props/Props";
+import ShoesShop from "./7_Ex_ShoesShop/ShoesShop";
+import ShoppingCart from "./BT_ShoppingCart/ShoppingCart";
 
 // Component: một function return về JSX mô tả những gì sẽ được hiển thị trên giao diện
 function App() {
@@ -57,18 +59,12 @@ function App() {
     // <Movie />
 
     // 7. Props
-    <Props />
+    // <Props />
+    // <ShoesShop />
+
+    // Bài tập tổng hợp State, Props
+    <ShoppingCart />
   );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-

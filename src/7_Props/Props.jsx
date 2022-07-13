@@ -1,5 +1,6 @@
 // rafce
 import React from "react";
+import Callback from "./Callback";
 import Product from "./Product";
 import Welcome from "./Welcome";
 
@@ -10,12 +11,20 @@ const products = [
 ];
 
 const Props = () => {
+  // Hàm này sẽ được gọi khi component Callback gọi tới prop onClick và truyền kèm params
+  const handleClick = (name) => {
+    alert(`Hello ${name}`);
+  };
+
   return (
     <div className="container">
       <h1>Props</h1>
       <Welcome />
       <Welcome name="Yasuo" email="yasuo@gmail.com" />
       <Welcome name="Yone" email="yone@gmail.com" />
+
+      <br />
+      <br />
 
       <div className="row">
         {products.map((product) => {
@@ -26,8 +35,27 @@ const Props = () => {
           );
         })}
       </div>
+
+      <br />
+      <br />
+
+      {/* props là function */}
+      <Callback onClick={handleClick} />
+      {/* <button onClick={handleClick}>Clicker</button> */}
     </div>
   );
 };
 
 export default Props;
+
+
+
+
+
+
+
+
+
+
+
+

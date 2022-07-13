@@ -200,3 +200,38 @@ this.setState((state) => ({
   counter: state.counter + 1,
 }));
 ```
+
+### 5. Props
+
+- Props là từ viết ngắn gọn của properties.
+- Props là các tham số được truyền vào cho component thông qua các thuộc tính HTML.
+- Mỗi components sẽ nhận vào một object props và trả về react element mô tả những gì sẽ xuất hiện trên màn hình.
+- Props cho phép chúng ta giao tiếp giữa các components với nhau.
+- Component nhận props chỉ dùng để đọc (read-only), không bao giờ được thay đổi giá trị của props.
+
+```jsx
+// Truyền props cho component Welcome
+<Welcome name="John" age={18} />;
+
+// Nhận giá trị của props trong function component bằng params
+const Welcome = (props) => {
+  console.log(props); // { name: "John", age: 18 }
+  return (
+    <div>
+      <h1>Xin chào {props.name}!</h1>
+    </div>
+  );
+};
+
+// Nhận giá trị của props trong class component bằng this.props
+class Welcome extends Component {
+  render() {
+    console.log(this.props); // { name: "John", age: 18 }
+    return (
+      <div>
+        <h1>Xin chào {this.props.name}!</h1>
+      </div>
+    );
+  }
+}
+```
