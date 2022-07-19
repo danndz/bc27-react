@@ -14,6 +14,7 @@ import Props from "./7_Props/Props";
 import ShoesShop from "./7_Ex_ShoesShop/ShoesShop";
 import ShoppingCart from "./BT_ShoppingCart/ShoppingCart";
 import Lifecycle from "./8_Lifecycle/Lifecycle";
+import ProductManagement from "./BT_ProductManagement/ProductManagement";
 
 // Component: một function return về JSX mô tả những gì sẽ được hiển thị trên giao diện
 function App() {
@@ -67,8 +68,20 @@ function App() {
     // <ShoppingCart />
 
     // 8. Lifecycle
-    <Lifecycle />
+    // <Lifecycle />
+
+    // Bài tập tổng hợp State, Props, Lifecycle
+    <ProductManagement />
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
