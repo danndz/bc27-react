@@ -8,7 +8,10 @@ export default class ProductManagement extends Component {
     super(props);
 
     this.state = {
+      // products: chứa thông tin danh sách sản phẩm
       products: [],
+      // selectedProduct: chứa thông tin sản phẩm cần cập nhật
+      selectedProduct: null,
     };
   }
 
@@ -19,6 +22,19 @@ export default class ProductManagement extends Component {
       );
       // Call API thành công
       this.setState({ products: data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  fetchProductDetails = async (productId) => {
+    try {
+      // Call API get product details
+      const { data } = await axios.get(
+        `https://629757b414e756fe3b2dc8f0.mockapi.io/api/products/${productId}`
+      );
+      // Thành công
+      this.setState({ selectedProduct: data });
     } catch (error) {
       console.log(error);
     }
@@ -39,6 +55,7 @@ export default class ProductManagement extends Component {
           </div>
           <div className="card-body">
             <ProductForm
+              product={this.state.selectedProduct}
               onSuccess={this.fetchProducts}
             />
           </div>
@@ -46,6 +63,8 @@ export default class ProductManagement extends Component {
 
         <ProductList
           products={this.state.products}
+          onSelectProduct={this.fetchProductDetails}
+          onDeleteSuccess={this.fetchProducts}
         />
       </div>
     );

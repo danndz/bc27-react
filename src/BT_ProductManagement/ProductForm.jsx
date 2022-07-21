@@ -34,11 +34,23 @@ export default class ProductForm extends Component {
     // Ngăn chặn hành vi reload lại page khi submit form
     evt.preventDefault();
 
+    const { id, ...payload } = this.state.values;
+
     try {
-      await axios.post(
-        "https://629757b414e756fe3b2dc8f0.mockapi.io/api/products",
-        this.state.values
-      );
+      if (id) {
+        // Cập nhật
+        await axios.put(
+          `https://629757b414e756fe3b2dc8f0.mockapi.io/api/products/${id}`,
+          payload
+        );
+      } else {
+        // Tạo mới
+        await axios.post(
+          "https://629757b414e756fe3b2dc8f0.mockapi.io/api/products",
+          payload
+        );
+      }
+
       // Call API thành công
       // B1: Reset Form
       this.setState({
@@ -55,6 +67,14 @@ export default class ProductForm extends Component {
       console.log(error);
     }
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    // Bởi vì componentDidUpdate sẽ tự động được thực thi khi state hoặc props thay đổi
+    // Kiểm tra nếu prop product thay đổi, setState lại cho values bằng giá trị mới của prop product
+    if (this.props.product && this.props.product !== prevProps.product) {
+      this.setState({ values: { ...this.props.product } });
+    }
+  }
 
   render() {
     const { values } = this.state;
