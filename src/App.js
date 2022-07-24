@@ -16,6 +16,8 @@ import ShoppingCart from "./BT_ShoppingCart/ShoppingCart";
 import Lifecycle from "./8_Lifecycle/Lifecycle";
 import ProductManagement from "./BT_ProductManagement/ProductManagement";
 import Composition from "./9_Composition/Composition";
+import Hooks from "./10_Hooks/Hooks";
+import UserManagement from "./BT_UserManagement/UserManagement";
 
 // Component: một function return về JSX mô tả những gì sẽ được hiển thị trên giao diện
 function App() {
@@ -75,7 +77,13 @@ function App() {
     // <ProductManagement />
 
     // 9. Composition
-    <Composition />
+    // <Composition />
+
+    // 10. Hooks
+    // <Hooks />
+
+    // Bài tập Hooks
+    <UserManagement />
   );
 }
 
