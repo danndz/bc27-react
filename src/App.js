@@ -18,6 +18,8 @@ import ProductManagement from "./BT_ProductManagement/ProductManagement";
 import Composition from "./9_Composition/Composition";
 import Hooks from "./10_Hooks/Hooks";
 import UserManagement from "./BT_UserManagement/UserManagement";
+import Refs from "./11_Refs/Refs";
+import Style from "./12_Style/Style";
 
 // Component: một function return về JSX mô tả những gì sẽ được hiển thị trên giao diện
 function App() {
@@ -83,7 +85,13 @@ function App() {
     // <Hooks />
 
     // Bài tập Hooks
-    <UserManagement />
+    // <UserManagement />
+
+    // 11. Refs
+    // <Refs />
+
+    // 12. Style
+    <Style />
   );
 }
 

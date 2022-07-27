@@ -4,8 +4,10 @@ import UserForm from "./UserForm";
 import UserList from "./UserList";
 
 const UserManagement = () => {
-  // tạo state users chứa data từ API
+  // tạo state users chứa data từ API get users
   const [users, setUsers] = useState([]);
+  // tạo state selectedUser chứa data từ API get user
+  const [selectedUser, setSelectedUser] = useState(null);
 
   const fetchUsers = async () => {
     try {
@@ -15,6 +17,19 @@ const UserManagement = () => {
       );
       // Thành công => gọi hàm setUsers(data) để gán data từ API cho state users
       setUsers(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchUser = async (userId) => {
+    try {
+      // Call API
+      const { data } = await axios.get(
+        `https://629757b414e756fe3b2dc8f0.mockapi.io/api/users/${userId}`
+      );
+      // Thành công => gán data từ API cho state selectedUser
+      setSelectedUser(data);
     } catch (error) {
       console.log(error);
     }
@@ -34,11 +49,15 @@ const UserManagement = () => {
           <strong>User Form</strong>
         </div>
         <div className="card-body">
-          <UserForm />
+          <UserForm user={selectedUser} onSubmitSuccess={fetchUsers} />
         </div>
       </div>
 
-      <UserList users={users} />
+      <UserList
+        users={users}
+        onSelect={fetchUser}
+        onDeleteSuccess={fetchUsers}
+      />
     </div>
   );
 };

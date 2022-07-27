@@ -8,8 +8,8 @@ import React, { useState, useEffect } from "react";
  *
  * UPDATING: state hoặc props thay đổi
  * - rendering
- * - run useEffect() cleanup
- * - run useEffect()
+ * - run useEffect() cleanup - khi depedencies bị thay đổi
+ * - run useEffect() - khi depedencies bị thay đổi
  *
  * UNMOUNT: component bị huỷ bỏ
  * - run useEffect() cleanup
